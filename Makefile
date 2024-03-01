@@ -46,14 +46,14 @@ folders:
 
 new1:	delete_files_folders_function.c delete_instructions_wwc.c
 
-	gcc -c -fPIC delete_files_folders_function.c -o delete_files_folders_function.o
+	$(CC) -c -fPIC delete_files_folders_function.c -o delete_files_folders_function.o
 
-	gcc -c -fPIC delete_instructions_wwc.c -o delete_instructions_wwc.o
+	$(CC) -c -fPIC delete_instructions_wwc.c -o delete_instructions_wwc.o
 
-	gcc -o murged.o delete_files_folders_function.o delete_instructions_wwc.o -lm
+	$(CC) -o murged.o delete_files_folders_function.o delete_instructions_wwc.o -lm
 
 new2:	
-	gcc -shared -o deleteFileFolder.so delete_files_folders_function.o delete_instructions_wwc.o 
+	$(CC) -shared -o deleteFileFolder.so delete_files_folders_function.o delete_instructions_wwc.o 
 
 	cp	-r $(current_DIR)/*.so	$(current_DIR)/$(project_name)/src
 
